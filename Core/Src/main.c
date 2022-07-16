@@ -99,7 +99,7 @@ uint32_t counter = 0;
 int16_t counter_position = 0;
 uint32_t us_delay = 0;
 const int counter_limit=15300; // put maximum counter value here
-
+int rec_rom_id;
 
 /* USER CODE END PV */
 
@@ -198,7 +198,7 @@ int main(void)
   SSD1306_UpdateScreen(); // update screen
   HAL_Delay(1000);
 
-  get_ROMid();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -240,17 +240,21 @@ int main(void)
 //		  HAL_GPIO_WritePin(S_ENABLE_GPIO_Port, S_ENABLE_Pin, GPIO_PIN_SET);
 	  }
 
-	  SSD1306_Fill(0);
-	  SSD1306_GotoXY(0, 0);
-	  sprintf(text, "%5i", counter_position);
-	  SSD1306_Puts (text, &Font_11x18, 1);
-//	  sprintf(text, "%5i", motor_position);
+
+//	  sprintf(text, "%5i", counter_position);
 //	  SSD1306_GotoXY(0, 30);
 //	  SSD1306_Puts (text, &Font_11x18, 1);
+//	  SSD1306_UpdateScreen();
+
+	  rec_rom_id = get_ROMid();
+	  SSD1306_Fill(0);
+	  SSD1306_GotoXY(0, 0);
+//	  sprintf(text, "%s %u", ow.ids);
+	  //sprintf(textout1, "%s %u", name1, var1);
+	  SSD1306_Puts (text, &Font_11x18, 1);
 	  SSD1306_UpdateScreen();
 
-	  get_Temperature();
-	  HAL_Delay (2000);
+	  HAL_Delay (1000);
 
 
   }
