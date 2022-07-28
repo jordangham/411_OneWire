@@ -42,6 +42,20 @@ RS232 on
 	rx	on  PA12	named USART6_RX
 
 
+OneWire timing
+standard / overdrive
+A 6 / 1.0
+B 64 / 7.5
+C 60 / 7.5
+D 10 / 2.5
+E 9 / 1.0
+F 55 / 7
+G 0 / 2.5
+H 480 / 70
+I 70 / 8.5
+J 410 / 40
+
+
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
